@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
-    <div class="container">
+    <div class="container-fluid">
       <a routerLink="/" class="navbar-brand">Shopping Cart</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +11,24 @@
             <a routerLink="/" class="nav-link">Home </a>
           </li>
           <li class="nav-item">
-            <a routerLink="/cart" class="nav-link">Cart </a>
+            <a (click)="dropdown()" style="cursor: pointer;" class="nav-link">Products </a>
+            <!-- <div *ngIf="showDropdown" class="prods">
+              <a *ngFor="let product of products">
+                 {{product}}
+              </a>
+           </div> -->
+          </li>
+          <li class="nav-item">
+            <a routerLink="/cart" class="nav-link">Login </a>
           </li>
         </ul>
       </div>
+      <div *ngIf="showDropdown" class="drpdwn menuList open" data-toggle="tooltip" data-placement="top" data-original-title="" title="">
+      <ul class="dropdown-menu smenu" role="menu">
+        <li *ngFor="let product of products" class="col-sm-4 has-sub">
+          <a> {{product}}</a>
+        </li>
+      </ul>
+    </div>
     </div>
   </nav>

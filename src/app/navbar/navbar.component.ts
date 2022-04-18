@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   constructor() { }
-
+  products=['Mobiles','Laptops','Headphones'];
+  showDropdown = false;
   ngOnInit(): void {
+  }
+
+  dropdown(){
+    this.showDropdown= !this.showDropdown ;
   }
 
 }
