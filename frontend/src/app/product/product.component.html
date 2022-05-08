@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="KdL3Vb">
+    {{products}}
+</div>
+<div class="row" style="text-align: center;">
+    <div *ngFor="let product of productList" class="card-header border-right col-sm-3">
+        <img src="../assets/images/{{product.idProduct}}.webp" >
+        <h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-4">
+            <a class="a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal" target="_blank" 
+            href="/">
+            <span class="a-size-base-plus a-color-base a-text-normal">
+                {{product.description}}</span> 
+            </a> </h2>
+        <span aria-hidden="true"><span class="a-price-symbol">₹</span><span class="a-price-whole">{{product.price}}</span></span>
+        <br>
+        <button class="btn btn-primary" style="background-color: red;">Add to Cart</button>
+    </div>
+</div>
+
