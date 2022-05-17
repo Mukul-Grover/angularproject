@@ -16,7 +16,9 @@ export class ProductComponent implements OnInit {
 
   products:String="";
   currentUrl="";
+  searchedKeyword: string="";
   productList:IProduct[] | undefined;
+  sortingPrice:string="";
 
   ngOnInit(): void {
    this.route.params.subscribe(params => {
@@ -27,6 +29,7 @@ export class ProductComponent implements OnInit {
 
   ngDoCheck(){
     if(this.currentUrl!=this.router.url){
+      this.sortingPrice="";
       var category:number=1;
       if(this.products=='MOBILES'){
         category=1;
@@ -41,6 +44,15 @@ export class ProductComponent implements OnInit {
         res => this.productList=res);
     }
     this.currentUrl=this.router.url;
+  }
+
+  sorting(sortingPrice:String){
+    if(sortingPrice=='HL' &&  this.productList!=undefined){
+      this.productList.sort((a, b) => Number(b.price) - Number(a.price));
+    }
+    else if(sortingPrice=='LH' &&  this.productList!=undefined){
+      this.productList.sort((a, b) => Number(a.price) - Number(b.price));
+    }
   }
 
 

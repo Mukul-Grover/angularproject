@@ -2,8 +2,26 @@
 <div class="KdL3Vb">
     {{products}}
 </div>
+<div class="row">
+<div class="col-md-4">
+    <b>Custom Search</b>
+  </div>
+  <div class="col-md-4 pull-right">
+    <b>Sorting</b>
+  </div>
+</div>
+  <div class="row">
+<div class="form-group col-md-4">
+    <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+  </div>
+  <select class="form-group col-md-4" [(ngModel)]="sortingPrice" (change)="sorting(sortingPrice)">
+   <option value="">Select</option>
+   <option value="HL">Price High to Low</option>
+   <option value="LH">Price Low to High</option>
+  </select>
+</div>
 <div class="row" style="text-align: center;">
-    <div *ngFor="let product of productList" class="card-header border-right col-sm-3">
+    <div *ngFor="let product of productList | filter:searchedKeyword" class="card-header border-right col-sm-3">
         <img src="../assets/images/{{product.idProduct}}.webp" >
         <h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-4">
             <a class="a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal" target="_blank" 
