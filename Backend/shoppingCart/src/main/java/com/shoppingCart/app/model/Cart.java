@@ -1,5 +1,7 @@
 package com.shoppingCart.app.model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +23,7 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "carts", catalog = "shopping_cart_db")
 public class Cart implements java.io.Serializable {
-
+	
 	private Long idCart;
 	private Customer customer;
 	private BigDecimal subtotal;
@@ -41,8 +45,9 @@ public class Cart implements java.io.Serializable {
 		this.linesItems = linesItems;
 	}
 
-	@Id
+	@Id()
 	@Column(name = "idcarts", unique = true, nullable = false)
+	@GeneratedValue(strategy=IDENTITY)
 	public Long getIdCart() {
 		return this.idCart;
 	}
@@ -51,7 +56,7 @@ public class Cart implements java.io.Serializable {
 		this.idCart = idCart;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idcustomer", nullable = false)
 	public Customer getCustomer() {
 		return this.customer;
@@ -70,8 +75,7 @@ public class Cart implements java.io.Serializable {
 		this.subtotal = subtotal;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cart")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cart")
 	public List<LineItem> getLinesItems() {
 		return this.linesItems;
 	}

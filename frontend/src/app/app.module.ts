@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductComponent } from './product/product.component';
 import { UsersModule } from './users/users.module';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    ProductComponent
+    ProductComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

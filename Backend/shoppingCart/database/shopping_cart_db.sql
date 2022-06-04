@@ -23,7 +23,7 @@ CREATE TABLE `customers` (
 DROP TABLE IF EXISTS `carts`;
 
 CREATE TABLE `carts` (
-  `idcarts` bigint(20) NOT NULL,
+  `idcarts` bigint(20) NOT NULL AUTO_INCREMENT,
   `idcustomer` bigint(20) NOT NULL,
   `subtotal` decimal(10,2) NOT NULL,
   PRIMARY KEY (`idcarts`),

@@ -4,6 +4,7 @@ com/shoppingCart/app/service/ProductService.class
 com/shoppingCart/app/model/Order.class
 com/shoppingCart/app/exception/ProductNotFoundException.class
 com/shoppingCart/app/controller/ProductController.class
+com/shoppingCart/app/model/CartDTO.class
 com/shoppingCart/app/model/Customer.class
 com/shoppingCart/app/dao/OrderDao.class
 com/shoppingCart/app/dao/ProductDao.class
@@ -16,7 +17,6 @@ com/shoppingCart/app/model/Product.class
 com/shoppingCart/app/util/OrderStatus.class
 com/shoppingCart/app/controller/CartController.class
 com/shoppingCart/app/controller/CustomerController.class
-com/shoppingCart/app/ShoppingCartApplication$1.class
 com/shoppingCart/app/service/CartServiceImp.class
 com/shoppingCart/app/service/CustomerService.class
 com/shoppingCart/app/exception/AuthenticationFailedException.class
@@ -27,5 +27,6 @@ com/shoppingCart/app/ShoppingCartApplication.class
 com/shoppingCart/app/dao/CartDao.class
 com/shoppingCart/app/model/Order$BuilderOrder.class
 com/shoppingCart/app/util/ShaHashing.class
+com/shoppingCart/app/model/LIneItemDTO.class
 com/shoppingCart/app/model/Category.class
 com/shoppingCart/app/dao/ProductDaoImp.class

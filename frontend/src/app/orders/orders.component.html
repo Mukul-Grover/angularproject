@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<div class="KdL3Vb">
+    Orders
+</div>
+<div class="row">
+<table class="col-sm-12" style="text-align:center;">
+    <tr *ngIf="orderdetailPresent && orderList!=undefined">
+        <th>
+            Orderid
+        </th>
+        <th>
+            Order date
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Total Price
+        </th>
+    </tr>
+    <tr *ngFor="let orderdet of orderList">
+        <td>
+            <a (click)="lineItem(orderdet.idorder)" style="color: #007bff;cursor: pointer;">{{orderdet.idorder}}</a>
+        </td>
+        <td>
+            {{orderdet.ordered | date:'dd/MM/yyyy'}}
+        </td>
+        <td>
+            {{orderdet.status}}
+        </td>
+        <td>
+            {{orderdet.total}}
+        </td>
+    </tr>
+</table>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" (click)="closeModal()" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Order details</h4>
+        </div>
+        <div class="modal-body">
+         <table *ngIf="orderLineItemDisplayed">
+            <tr>
+                <th>
+                   Product Name
+                </th>
+                <th>
+                   Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+            </tr>
+            <tr *ngFor="let item of lineItemList">
+                <td>
+                    {{item.productName}}
+                </td>
+                <td>
+                    {{item.quantity}}
+                </td>
+                <td>
+                    {{item.price}}
+                </td>
+        </tr>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="closeModal()" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

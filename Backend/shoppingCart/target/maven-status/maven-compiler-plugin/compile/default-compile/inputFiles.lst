@@ -2,6 +2,7 @@
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/controller/CartController.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/dao/ProductDao.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/Order.java
+/home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/LIneItemDTO.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/service/CartService.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/controller/ProductController.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/util/ShaHashing.java
@@ -24,6 +25,7 @@
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/dao/ProductDaoImp.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/LineItem.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/dao/CustomerDao.java
+/home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/CartDTO.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/Product.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/model/Category.java
 /home/mukul/git/shoppingCart/src/main/java/com/shoppingCart/app/service/ProductServiceImp.java

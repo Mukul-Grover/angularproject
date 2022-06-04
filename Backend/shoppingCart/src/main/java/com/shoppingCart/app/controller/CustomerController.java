@@ -27,7 +27,7 @@ public class CustomerController {
 
 	@Autowired
 	CustomerService customerService;
-
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/users/login", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<Customer> login(@RequestParam("username") String username, @RequestParam("password") String password) 
 			throws NoSuchAlgorithmException, AuthenticationFailedException {
@@ -36,6 +36,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
+	@CrossOrigin(origins = "*")
 	public @ResponseBody ResponseEntity<Void> addCustomer(@RequestBody Customer customer, HttpServletRequest request) 
 			throws URISyntaxException, NoSuchAlgorithmException {
 		Long id = customerService.addCustomer(customer);
