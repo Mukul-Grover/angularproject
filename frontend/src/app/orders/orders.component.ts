@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
 import { IlineItemOrder } from '../interface/IlineItemOrder';
 import { IOrder } from '../interface/IOrder';
+import { AuthService } from '../users/login/auth.service';
 
 @Component({
   selector: 'app-orders',
@@ -9,21 +11,31 @@ import { IOrder } from '../interface/IOrder';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+  [x: string]: any;
 
-  constructor(private service: CommonService) { }
+  constructor(private service: CommonService, private router: Router,private authService: AuthService) { }
 
   orderList : IOrder[] | undefined;
   lineItemList : IlineItemOrder[] | undefined;
   orderdetailPresent:boolean=false;
   orderLineItemDisplayed = false;
   ngOnInit(): void {
-
-    this.service.getorderLIstBycategory(1).subscribe(
+    if(this.authService.isLoggedIn()){
+      this.service.getorderLIstBycategory(1).subscribe(
       
-      res => {this.orderList=res
-      console.log(this.orderList);
-        this.orderdetailPresent=true}
-        );
+        res => {this.orderList=res
+        console.log(this.orderList);
+          this.orderdetailPresent=true}
+          );
+
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
+
+
+
+    
   }
 
   lineItem(id:number){

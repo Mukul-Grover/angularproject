@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../users/login/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,25 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit,DoCheck{
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private authService: AuthService) { }
   currentUrl="";
   
   products=['Mobiles','Laptops','Headphones'];
   showDropdown = false;
+  isLoggedIn= false;
   ngOnInit(): void {
+    if(this.authService.isLoggedIn()){
+      this.isLoggedIn= true;
+    }
+  }
+
+  order(){
+    if(!this.isLoggedIn){
+      alert("Please login first");
+    }
+    else{
+      this.router.navigateByUrl('/order');
+    }
   }
 
   ngDoCheck(){
@@ -26,6 +40,10 @@ export class NavbarComponent implements OnInit,DoCheck{
   dropdown(){
     this.showDropdown= !this.showDropdown ;
   }
-
+  logOut(){
+    this.authService.logout();
+    this.isLoggedIn= false;
+    this.router.navigateByUrl('/home');
+  }
 
 }

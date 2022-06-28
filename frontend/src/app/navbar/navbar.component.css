@@ -35,3 +35,6 @@
     display: inline-block;
     cursor: pointer;
 }
+.point{
+    cursor: pointer;
+}

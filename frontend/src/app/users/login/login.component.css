@@ -79,3 +79,14 @@
 .login input[type="submit"]:focus {
   border-color: #05a;
 }
+
+.buttoncs{
+  background: rgb(1, 29, 51);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+input:hover{
+  background-color: #17c;
+}

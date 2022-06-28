@@ -11,7 +11,7 @@
           <a routerLink="/" class="nav-link">Home </a>
         </li>
         <li class="nav-item">
-          <a (click)="dropdown()" style="cursor: pointer;" class="nav-link">Products </a>
+          <a (click)="dropdown()" class="nav-link point">Products </a>
           <!-- <div *ngIf="showDropdown" class="prods">
             <a *ngFor="let product of products">
                {{product}}
@@ -19,10 +19,13 @@
          </div> -->
         </li>
         <li class="nav-item">
-          <a routerLink="/order" class="nav-link">Orders </a>
+          <a (click)="order()" class="nav-link point">Orders </a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Login </a>
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a routerLink="/login" class="nav-link point">Login </a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a  (click)="logOut()" class="nav-link point">Logout </a>
         </li>
       </ul>
     </div>
